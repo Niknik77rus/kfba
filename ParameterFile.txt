@@ -1,0 +1,21 @@
+[DEFAULT]
+InputFile = '/media/nnk/DATA/projects/python/kfba/inputFileSingle.csv'
+IDColumn = "UPC"
+IDColumnType = "UPC"
+PurchasePriceColumn = "Price"
+FBAReferallCoefficient = 0.15
+ShippingFee = $1
+NCompetitors = 5
+ProfitROIThreshold = 5%
+AvailableSalesThreshold = 2
+OutputFile = '/media/nnk/DATA/projects/python/kfba/outputFile.csv'
+
+
+
+[StandardKeepaFields]
+# if you set 1, parameter will be included for further usage. 0 means - parameter is not needed in the current API call.
+Title  = 1
+Sales Rank Current = 1
+Sales Rank 30 days avg.  = 1
+Sales Rank 90 days avg.  = 1
+Sales Rank 180 days avg.  = 1
