@@ -19,3 +19,114 @@ Sales Rank Current = 1
 Sales Rank 30 days avg.  = 1
 Sales Rank 90 days avg.  = 1
 Sales Rank 180 days avg.  = 1
+Sales Rank 30 days drop % = 1
+Sales Rank 90 days drop % = 1
+Sales Rank Drop since last visit = 1
+Sales Rank Drop % since last visit= 1
+Sales Rank Last visit  = 1
+Sales Rank Lowest = 1
+Sales Rank Highest = 1
+Reviews Rating = 1
+Reviews Review Count = 1
+Reviews Review Count 30 days avg. = 1
+Reviews Review Count 90 days avg. = 1
+Reviews Review Count 180 days avg. = 1
+Last Price Change = 1
+Amazon: Current = 1
+Amazon 30 days avg. = 1
+Amazon 90 days avg. = 1
+Amazon 180 days avg. = 1
+Amazon 30 days drop % = 1
+Amazon 90 days drop % = 1
+Amazon Drop since last visit = 1
+Amazon Drop % since last visit = 1
+Amazon Last visit = 1
+Amazon Lowest
+Amazon Highest
+Amazon 90 days OOS
+Amazon Availability of the Amazon offer
+New Current
+New 30 days avg.
+New 90 days avg.
+New 180 days avg.
+New 30 days drop %
+New 90 days drop %
+New Drop since last visit
+New Drop % since last visit
+New Last visit
+New Lowest
+New Highest
+New, 3rd Party FBA: Current
+New, 3rd Party FBA: 30 days avg.
+New, 3rd Party FBA: 90 days avg.
+New, 3rd Party FBA: 180 days avg.
+New, 3rd Party FBA: 30 days drop %
+New, 3rd Party FBA: 90 days drop %
+New, 3rd Party FBA: Drop since last visit
+New, 3rd Party FBA: Drop % since last visit
+New, 3rd Party FBA: Last visit
+New, 3rd Party FBA: Lowest
+New, 3rd Party FBA: Highest
+Cheapest FBA Seller
+FBA Fees
+List Price: Current
+List Price: 30 days avg.
+List Price: 90 days avg.
+List Price: 180 days avg.
+List Price: 30 days drop %
+List Price: 90 days drop %
+List Price: Drop since last visit
+List Price: Drop % since last visit
+List Price: Last visit
+List Price: Lowest
+List Price: Highest
+New Offer Count: Current
+New Offer Count: 90 days avg.
+Count of retrieved live offers: New, FBA
+Count of retrieved live offers: New, FBM
+Buy Box: Current
+Buy Box: 30 days avg.
+Buy Box: 90 days avg.
+Buy Box: 180 days avg.
+Buy Box: 30 days drop %
+Buy Box: 90 days drop %
+Buy Box: Drop since last visit
+Buy Box: Drop % since last visit
+Buy Box: Last visit
+Buy Box: Lowest
+Buy Box: Highest
+Buy Box Seller
+eBay New: Current
+eBay New: 30 days avg.
+eBay New: 90 days avg.
+eBay New: 180 days avg.
+eBay New: 30 days drop %
+eBay New: 90 days drop %
+eBay New: Drop since last visit
+eBay New: Drop % since last visit
+eBay New: Last visit
+eBay New: Lowest
+eBay New: Highest
+Tracking since
+Categories: Root
+Categories: Sub
+Categories: Tree
+Product Codes: UPC
+Parent ASIN
+Variation ASINs
+Type
+Manufacturer
+Brand
+Department
+Model
+Color
+Size
+Number of Items
+Release Date
+Package: Dimension (cm³)
+Package: Length (cm)
+Package: Width (cm)
+Package: Height (cm)
+Package: Weight (g)
+Package: Quantity
+Subscribe and Save

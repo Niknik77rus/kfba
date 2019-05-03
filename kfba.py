@@ -1,10 +1,9 @@
-import sys
-import logging
 from kfba_config import *
 from keepa import *
 import configparser
 from datetime import datetime, timedelta
 import csv
+
 
 class MainFBA:
 
@@ -15,29 +14,35 @@ class MainFBA:
         self.output_file = ''
         self.asin_list = []
         self.raw_data_list = []
+        self.config = []
         self.result = []
 
     def parse_cfg(self):
+        #file name we provide in script call
         #file with parameters should be UTF-8 encoded
-        config = configparser.ConfigParser()
-        config.read(self.config_file)
+        self.config = configparser.ConfigParser(delimiters='=', allow_no_value=True)
+        self.config.read(self.config_file)
 
-        self.input_file = config['DEFAULT']['InputFile'].strip('\'')
-        self.output_file = config['DEFAULT']['OutputFile'].strip('\'')
+        self.input_file = self.config['DEFAULT']['InputFile'].strip('\'')
+        self.output_file = self.config['DEFAULT']['OutputFile'].strip('\'')
 
+        #dummy print out for checking
         print("TEST CONFIG KEEPA FIELDs")
-        print('Title - ', config['StandardKeepaFields']["Title"])
-        print('Sales Rank 90 days avg. - ', config['StandardKeepaFields']["Sales Rank 90 days avg."])
+        print('Title - ', self.config['StandardKeepaFields']["Title"])
+        print('Sales Rank 90 days avg. - ', self.config['StandardKeepaFields']["Sales Rank 90 days avg."])
 
-        print(config.read(self.config_file))
+        print(self.config.read(self.config_file))
 
-        return config
+        return self.config
 
     def read_input(self):
+        #read input CSV file with ASINs
         with open(self.input_file) as f:
             csv_reader = csv.reader(f)
             input_list = list(csv_reader)
+
         print("INPUT CSV PARSED INTO LIST: ", input_list)
+
         for i in range(1,len(input_list)):
             self.asin_list.append(input_list[i][0])
 
@@ -45,11 +50,16 @@ class MainFBA:
         return self.asin_list
 
     def make_keepa_call(self):
-        #fetch data
+        #fetch and return all data from keepa.com
         for item in self.asin_list:
             product = self.api.query(item)
             self.raw_data_list.append(product)
         return self.raw_data_list
+
+    def write_out(self):
+        with open(self.output_file, 'w+') as f:
+            for item in self.result:
+                f.write("%s\n" % item)
 
     def play_with_data(self):
 
@@ -58,6 +68,22 @@ class MainFBA:
 
         print('AVAILABLE KEYS: ')
         print(product[0].keys())
+
+        print('DATA ALL KEYS:')
+        print(product[0]['data'].keys())
+
+        print('AMAZON PRICE - RAW ARRAY')
+        print(product[0]['data']['AMAZON'])
+
+        #add Title to the result list
+        if self.config['StandardKeepaFields']['Title'] == '1':
+            print('TITLE HERE - ', product[0]['title'])
+            self.result.append('Title: ' + product[0]['title'])
+
+        if self.config['StandardKeepaFields']['Amazon: Current'] == '1':
+            print('Amazon: Current HERE - ', product[0]['data']['AMAZON'][-1])
+            self.result.append('Amazon: Current: ' + str(product[0]['data']['AMAZON'][-1]))
+
 
         print('length: ', product[0]['packageLength'])
         print('width: ', product[0]['packageWidth'])
@@ -87,7 +113,7 @@ class MainFBA:
                 print('%20s $%.2f' % (newpricetime[i], newprice[i]))
                 count_dates += 1
                 price_avg_90 += newprice[i]
-        print('AVG 90 days PRICE = ', price_avg_90/count_dates)
+        #print('AVG 90 days PRICE = ', price_avg_90/count_dates)
 
 
         amazonprice = product[0]['data']['AMAZON']
@@ -126,13 +152,12 @@ class MainFBA:
                 salesrank_30 += salesrank[i]
         print('salesrank 30 days average', salesrank_30 / count_dates)
 
-        self.result = self.raw_data_list
+        #for tests - return all data fetched for ASIN
+        #self.result = self.raw_data_list
+
         return self.result
 
-    def write_out(self):
-        with open(self.output_file, 'w+') as f:
-            for item in self.result:
-                f.write("%s\n" % item)
+
 
 
 
