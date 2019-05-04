@@ -1,4 +1,5 @@
 [DEFAULT]
+accesskey = 4fu8mno92h5gjgsrh5mbrfedbfjfmimrb93st3dkcpk0e0osme5r3luapbtklon6
 InputFile = '/media/nnk/DATA/projects/python/kfba/inputFileSingle.csv'
 IDColumn = "UPC"
 IDColumnType = "UPC"
@@ -10,15 +11,13 @@ ProfitROIThreshold = 5%
 AvailableSalesThreshold = 2
 OutputFile = '/media/nnk/DATA/projects/python/kfba/outputFile.csv'
 
-
-
 [StandardKeepaFields]
 # if you set 1, parameter will be included for further usage. 0 means - parameter is not needed in the current API call.
 Title  = 1
 Sales Rank Current = 1
-Sales Rank 30 days avg.  = 1
-Sales Rank 90 days avg.  = 1
-Sales Rank 180 days avg.  = 1
+Sales Rank 30 days avg. = 1
+Sales Rank 90 days avg. = 1
+Sales Rank 180 days avg. = 1
 Sales Rank 30 days drop % = 1
 Sales Rank 90 days drop % = 1
 Sales Rank Drop since last visit = 1
@@ -107,26 +106,25 @@ eBay New: Drop % since last visit
 eBay New: Last visit
 eBay New: Lowest
 eBay New: Highest
-Tracking since
-Categories: Root
-Categories: Sub
-Categories: Tree
-Product Codes: UPC
-Parent ASIN
-Variation ASINs
-Type
-Manufacturer
-Brand
-Department
-Model
-Color
-Size
-Number of Items
-Release Date
-Package: Dimension (cm³)
-Package: Length (cm)
-Package: Width (cm)
-Package: Height (cm)
-Package: Weight (g)
-Package: Quantity
-Subscribe and Save
+Tracking since = 1 
+Categories: Root = 1
+Categories: Sub = 1
+Categories: Tree = 1
+Product Codes: UPC = 1
+Parent ASIN = 1
+Variation ASINs = 1
+Type = 1
+Manufacturer = 1
+Brand = 1
+Department = 1
+Model = 1
+Color = 1
+Size = 1
+Number of Items = 1
+Release Date = 1
+Package: Dimension (cm³) = 1
+Package: Length (cm) = 1
+Package: Width (cm) = 1
+Package: Height (cm) = 1
+Package: Weight (g) = 1
+Package: Quantity = 1

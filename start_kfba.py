@@ -10,7 +10,6 @@ args = parser.parse_args()
 
 config_file = args.config
 
-print('CHECK YOUR KEY: ', accesskey)
 print('config file path: ', config_file)
 kfba_instance = MainFBA(config_file)
 
@@ -23,3 +22,4 @@ kfba_instance.write_out()
 
 print('Dummy call of FBA calc:')
 print(fbacalculator.calculate_fees(10,10,10,10))
+print('Job is completed...')
