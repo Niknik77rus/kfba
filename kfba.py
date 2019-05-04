@@ -34,7 +34,6 @@ class MainFBA:
         # dummy print out for checking
         print("TEST CONFIG KEEPA FIELDs")
         print('Title - ', self.config['StandardKeepaFields']["Title"])
-        print('Sales Rank 90 days avg. - ', self.config['StandardKeepaFields']["Sales Rank 90 days avg."])
         print('apikey - ', self.config['DEFAULT']['accesskey'])
         print(self.config.read(self.config_file))
 
@@ -117,6 +116,10 @@ class MainFBA:
         print('DATA ALL KEYS:')
         print(product[0]['data'].keys())
 
+        print('ebayListingIds', product[0]['ebayListingIds'])
+        print('lastEbayUpdate', product[0]['lastEbayUpdate'])
+        print('variations', product[0]['variations'])
+
         # adding items mentioned in the config to the result list
         if self.config['StandardKeepaFields']['Title'] == '1':
             self.result.append('Title: ' + product[0]['title'])
@@ -124,12 +127,27 @@ class MainFBA:
         if self.config['StandardKeepaFields']['Sales Rank Current'] == '1':
             self.result.append('Sales Rank Current: ' + str(product[0]['data']['SALES'][-1]))
         if self.config['StandardKeepaFields']['Sales Rank 30 days avg.'] == '1':
-            self.result.append('Sales Rank 30 days avg.' +
+            self.result.append('Sales Rank 30 days avg.: ' +
                                str(self.count_average_x_days(product[0]['data']['SALES'], product[0]['data']['SALES_time'],  30)))
+        if self.config['StandardKeepaFields']['Sales Rank 90 days avg.'] == '1':
+            self.result.append('Sales Rank 90 days avg.: ' +
+                               str(self.count_average_x_days(product[0]['data']['SALES'], product[0]['data']['SALES_time'],  90)))
+        if self.config['StandardKeepaFields']['Sales Rank 180 days avg.'] == '1':
+            self.result.append('Sales Rank 180 days avg.: ' +
+                               str(self.count_average_x_days(product[0]['data']['SALES'], product[0]['data']['SALES_time'],  180)))
+
+        if self.config['StandardKeepaFields']['Last Price Change'] == '1':
+            self.result.append('Last Price Change: ' + str(product[0]['lastPriceChange']))
+
+
         if self.config['StandardKeepaFields']['Amazon: Current'] == '1':
             self.result.append('Amazon: Current: ' + str(product[0]['data']['AMAZON'][-1]))
+
+
+
+        if self.config['StandardKeepaFields']['FBA Fees'] == '1':
+            self.result.append('FBA Fees: ' + str(product[0]['fbaFees']))
         if self.config['StandardKeepaFields']['Categories: Root'] == '1':
-            print('HEREEEEE!!!', self.config['StandardKeepaFields']['Categories: Root'] )
             self.result.append('Categories: Root: ' + str(product[0]['rootCategory']))
         if self.config['StandardKeepaFields']['Categories: Sub'] == '1':
             self.result.append('Categories: Sub: ' + str(product[0]['categories']))
@@ -173,13 +191,3 @@ class MainFBA:
             self.result.append('Package: Weight (g): ' + str(product[0]['packageWeight']))
 
         return self.result
-
-
-
-
-
-
-
-
-
-

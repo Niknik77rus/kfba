@@ -67,7 +67,7 @@ New, 3rd Party FBA: Last visit
 New, 3rd Party FBA: Lowest
 New, 3rd Party FBA: Highest
 Cheapest FBA Seller
-FBA Fees
+FBA Fees = 1
 List Price: Current
 List Price: 30 days avg.
 List Price: 90 days avg.

@@ -20,6 +20,6 @@ kfba_instance.make_keepa_call()
 kfba_instance.play_with_data()
 kfba_instance.write_out()
 
-print('Dummy call of FBA calc:')
+print('Dummy call of FBA calculator:')
 print(fbacalculator.calculate_fees(10,10,10,10))
 print('Job is completed...')
